@@ -1,0 +1,16 @@
+{
+  "name": "new-todo-app",
+  "description": "This is new-todo-app",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/KantaFukazawa/new-todo-app",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}
