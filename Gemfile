@@ -26,6 +26,10 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'hamlit'
 gem 'aws-sdk-s3', require: false
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
