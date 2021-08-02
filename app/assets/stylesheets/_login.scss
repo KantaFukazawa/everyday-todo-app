@@ -1,0 +1,72 @@
+.login {
+}
+
+.login_upper {
+  text-align: center;
+  padding: 40px 0 0 0;
+
+  img {
+    width: 155px;
+    height: 80px;
+  }
+
+  p {
+    font-family: Hiragino Kaku Gothic ProN;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000000;
+  }
+}
+
+.login_middle {
+  text-align: center;
+  margin: 38px 0 0 0;  
+}
+
+.login_btn {
+    display: block;
+    text-align: center;
+    width: 332px;
+    height: 65px;
+    padding: 113px, 24px;
+    font-family: Hiragino Kaku Gothic ProN;
+    font-size: 12px;    
+    font-weight: bold;
+    line-height: 63px;
+    color: #333333;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+
+    img {
+      display: inline;
+      vertical-align: middle;
+    }
+}
+
+
+.login_btn_twitter {
+  margin: 0 auto 10px auto;
+}
+
+.login_btn_google {
+  margin: 0 auto;
+}
+
+.login_bottom {
+  text-align: center;
+  padding: 70px 0 0 0;
+
+  p {
+    font-family: Hiragino Kaku Gothic ProN;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+  }
+
+  span {
+    cursor: pointer;
+    color: #609BEB;
+  }
+}
