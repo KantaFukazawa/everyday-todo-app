@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'annotate'
 gem 'better_errors'
 gem 'binding_of_caller'
-gem 'hamlit'
+gem 'hamlit-rails'
 gem 'aws-sdk-s3', require: false
 gem 'devise'
 gem 'omniauth-rails_csrf_protection'
