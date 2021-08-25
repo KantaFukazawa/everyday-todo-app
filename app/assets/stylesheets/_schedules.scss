@@ -1,3 +1,98 @@
 // Place all the styles related to the Schedules controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'common';
+.calendar_page {
+  position: relative;
+}
+
+#calendar {
+  position: absolute;
+  left: 0;
+  padding: 80px 0;
+  width: 45%;
+  height: 100vh;
+}
+
+#calendar_day {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 53%;
+  height: 100vh;
+  background: rgba(95, 168, 211, 0.25);
+}
+
+.calendar_day_items {
+  padding: 100px 0 0 0;
+}
+
+.calendar_day_item {
+  height: 60px;
+  width: 500px;
+  max-width: 95%;
+  margin:20px auto 0;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  border-radius: 10px
+}
+
+.day_time {
+  display: inline-block;
+  padding: 20px 0 30px 20px;
+  font-family: Roboto;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.day_title {
+  display: inline-block;
+  padding: 20px 0 30px 20px;
+  font-family: Roboto;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.calendar_day_add {
+  height: 60px;
+  width: 500px;
+  max-width: 95%;
+  margin:20px auto 0;
+  background: rgba(27, 73, 101, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.dli-plus {
+  position: relative;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  display: inline-block;
+  vertical-align: middle;
+  color: #C4C4C4;
+  line-height: 1;
+  width: 35px;
+  height: 7px;
+  background: currentColor;
+  border-radius: 0.1em;
+  
+}
+
+.dli-plus::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: inherit;
+  transform: rotate(90deg);
+}
