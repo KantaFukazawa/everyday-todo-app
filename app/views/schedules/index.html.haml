@@ -12,5 +12,24 @@
         .calendar_day_item
           %p.day_time 18:00 ~ 20:00
           %p.day_title 外食
-        .calendar_day_add
+        .calendar_day_add#modal_open_day_add
           %span.dli-plus
+#modal.modal
+  .modal_content
+    .dli-close#modal_close
+    .modal_body
+      .form
+        .form_items
+          %label.form_label{for: "title"} タイトル
+          %input#name.form_name{name: "title", type: "text"}/
+        .form_items
+          %label.form_label{for: "time"} 時間
+          %option.form_option{name: "time" } 00:00
+          %span.time_item ~
+          %option.form_option{name: "time" } 00:00
+        .form_items
+          %label.form_label{for: "content"} 内容
+          %textarea#content.form_content{name: "content"}
+        .btn_wrapper
+          %input.form_btn{type: "submit", value: "保存"}/
+        
