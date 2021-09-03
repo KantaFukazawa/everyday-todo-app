@@ -30,3 +30,17 @@ $(function(){
   return false;
   }); 
 });
+
+// コンテンツの表示（仮）
+// $(function(){
+//     // コンテンツの表示
+//     $('#calendar_day_item').on('click', function(){
+//       $('').
+//       return false;
+//     });
+//     // コンテンツの非表示
+//     $('#calendar_day_item').on( 'click', function() {
+//     $( '#modal' ).
+//     return false;
+//     }); 
+// });
