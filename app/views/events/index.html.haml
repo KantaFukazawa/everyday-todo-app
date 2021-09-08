@@ -28,18 +28,18 @@
   .modal_content
     .dli-close#modal_close
     .modal_body
-      .form
-        .form_items
-          %label.form_label{for: "title"} タイトル
-          %input#name.form_name{name: "title", type: "text"}/
-        .form_items
-          %label.form_label{for: "time"} 時間
-          %option.form_option{name: "time" } 00:00
+      =form_with(model: @event, url: events_path, method: 'post', local: true) do |f|
+        .form_items 
+          =f.label :title, 'タイトル', class: 'form_label'
+          =f.text_field :title, id: 'name', class: 'form_name'
+        .form_items 
+          =f.label :start, '時間', class: 'form_label'
+          =f.datetime_field :start, class: 'datetime_field'
           %span.time_item ~
-          %option.form_option{name: "time" } 00:00
+          =f.datetime_field :end, class: 'datetime_field'
         .form_items
-          %label.form_label{for: "content"} 内容
-          %textarea#content.form_content{name: "content"}
+          =f.label :content, '内容', class: 'form_label'
+          =f.text_area :content, id: 'content', class: 'form_content'
         .btn_wrapper
-          %input.form_btn{type: "submit", value: "保存"}/
+          = f.submit type: "submit", value: "保存", class: 'form_btn'
         
