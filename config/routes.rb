@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   authenticated :user do
     root :to => 'events#index', :as => "user_authenticated_root"
+    resources :events, only:[:index, :new, :create, :update, :destroy] 
   end
   root 'top#index'
-  get 'events/show'
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end
