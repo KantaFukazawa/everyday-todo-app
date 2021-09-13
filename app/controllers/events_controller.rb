@@ -8,11 +8,8 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    if @event.save
-      redirect_to root_path, notice: '保存に成功しました。'
-    else
-      flash.now[:alert] = '保存に失敗しました。'
-    end
+    @event.save!
+    render json: @event
   end
 
   # def update

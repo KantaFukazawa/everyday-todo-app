@@ -4,6 +4,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
 document.addEventListener('DOMContentLoaded', function() {
+
+  ///// プラグイン /////
   var calendarEl = document.getElementById('calendar');
   var calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, interactionPlugin ],
@@ -30,22 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
       e.dayNumberText = e.dayNumberText.replace('日', '');
     },
     // イベント
-    events:[
-      { 
-        title: '筋トレ',
-        start: '2021-08-25T09:00:00', 
-        end: '2021-08-25T12:00:00' 
-      },
-      { 
-        title: '読書',
-        start: '2021-08-25T13:00:00', 
-        end: '2021-08-25T17:00:00' 
-      },
-      { 
-        title: '外食',
-        start: '2021-08-25T18:00:00', 
-        end: '2021-08-25T20:00:00' 
-      }
+    eventSources:[
+      
     ],
     eventTimeFormat: { hour: 'numeric', minute: '2-digit' },
     // イベントの終了時刻未設定の場合の設定時間
