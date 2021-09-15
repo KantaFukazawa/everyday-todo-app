@@ -3,25 +3,19 @@
     #calendar
     #calendar_day
       .calendar_day_items
-        #calendar_day_item.calendar_day_item 
-          %p.day_time 9:00 ~ 12:00
-          %p.day_title 筋トレ
-          .day_content
-            %p
-            ランニング 30分
-            %br
-            ベンチプレス 20~30
-            %br
-            アームカール 20~30
-            %br
-            サイドレイズ 20~30
-
-        .calendar_day_item 
-          %p.day_time 13:00 ~ 17:00
-          %p.day_title 書類作成
-        .calendar_day_item
-          %p.day_time 18:00 ~ 20:00
-          %p.day_title 外食
+        - @events.each do |event|
+          #calendar_day_item.calendar_day_item 
+            %p.day_time= event.start
+            %p.day_title 筋トレ
+            .day_content
+              %p
+              ランニング 30分
+              %br
+              ベンチプレス 20~30
+              %br
+              アームカール 20~30
+              %br
+              サイドレイズ 20~30
         .calendar_day_add#modal_open_day_add
           %span.dli-plus
 #modal.modal
@@ -31,15 +25,15 @@
       =form_with(model: @event, url: events_path, method: 'post', local: true) do |f|
         .form_items 
           =f.label :title, 'タイトル', class: 'form_label'
-          =f.text_field :title, id: 'name', class: 'form_name'
+          =f.text_field :title, id: 'event_form_name', class: 'form_name'
         .form_items 
           =f.label :start, '時間', class: 'form_label'
-          =f.datetime_field :start, class: 'datetime_field'
+          =f.datetime_field :start, id: 'event_start_datetime', class: 'datetime_field'
           %span.time_item ~
-          =f.datetime_field :end, class: 'datetime_field'
+          =f.datetime_field :end, id: 'event_end_datetime', class: 'datetime_field'
         .form_items
-          =f.label :content, '内容', class: 'form_label'
-          =f.text_area :content, id: 'content', class: 'form_content'
+          =f.label :content, '内容',  class: 'form_label'
+          =f.text_area :content, id: 'event_form_content', class: 'form_content'
         .btn_wrapper
-          = f.submit type: "submit", value: "保存", class: 'form_btn'
+          = f.submit type: "submit", value: "保存", id: 'event_form_btn', class: 'form_btn'
         

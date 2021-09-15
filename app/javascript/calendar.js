@@ -31,18 +31,21 @@ document.addEventListener('DOMContentLoaded', function() {
     dayCellContent: function(e) {
       e.dayNumberText = e.dayNumberText.replace('日', '');
     },
-    // イベント
-    eventSources:[
-      
-    ],
+    // イベントの表示
+    events: '/events.json',
+    // 時間の表示
     eventTimeFormat: { hour: 'numeric', minute: '2-digit' },
     // イベントの終了時刻未設定の場合の設定時間
     defaultTimedEventDuration: '03:00:00',
     // イベントの色を変える
     eventColor: '#63ceef',
     // イベントの文字色を変える
-    eventTextColor: '#000000',
+    eventTextColor: '#000000'
   });
 
   calendar.render();
+
+  $(".error").click(function(){
+    calendar.refetchEvents();
+  });
 });

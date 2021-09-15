@@ -4,12 +4,15 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @event = Event.new
+    respond_to do |format|
+      format.html
+      format.json {render :json => @events}
+    end
   end
 
   def create
     @event = current_user.events.build(event_params)
     @event.save!
-    render json: @event
   end
 
   # def update
