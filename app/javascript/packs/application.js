@@ -18,6 +18,8 @@ require("../calendar")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+
+
 $(function(){
   // ウィンドウを開く
   $('#modal_open_day_add').on('click', function(){

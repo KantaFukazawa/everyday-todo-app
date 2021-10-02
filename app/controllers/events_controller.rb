@@ -13,6 +13,10 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     @event.save!
+    respond_to do |format|
+      format.html
+      format.json {render :json => @events}
+    end
   end
 
   # def update
