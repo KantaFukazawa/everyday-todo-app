@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     root :to => 'events#index', :as => "user_authenticated_root"
     resources :events, only:[:index, :new, :create, :update, :destroy] 
   end
+
+  resource :profile, only: [:show, :edit, :update]
+  
   root 'top#index'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
