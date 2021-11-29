@@ -10,6 +10,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    date = params[:date]
+    # start = params[start: date]
+    @event = Event.where()
+  end
+
   def create
     @event = current_user.events.build(event_params)
     @event.save!
