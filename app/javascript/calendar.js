@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 日本語化
     locale: 'ja',
     // 時間軸を日本
-    // timeZone: 'Asia/Tokyo',
+    timeZone: 'Asia/Tokyo',
     // 日曜始まり
     firstDay: 0,
     // 土日の色表示

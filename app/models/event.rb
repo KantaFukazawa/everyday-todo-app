@@ -19,5 +19,4 @@ class Event < ApplicationRecord
   belongs_to :user
   validates :title, :start,  :end, presence: true
 
-
 end
