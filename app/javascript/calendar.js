@@ -58,8 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.location.href = `http://localhost:3000/events/show?date=${dataDate}`; 
   });
 
-
-
   $('#event_form_btn').click(function(){
     const title = $('.form_name').val()
     const start = $('.start_datetime').val()
