@@ -5,5 +5,6 @@
         .profile_your_avatar
           %i.fas.fa-user-circle.fa-9x.fa-user-color	
       .profile_bio_right
-        .profile_your_name テスト
-        .profile_your_introduction テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト
+        .profile_your_name= current_user.profile.nickname
+        .profile_your_introduction= current_user.profile.introduction
+        %a.profile_setting(href= '/profile/edit') プロフィール設定
