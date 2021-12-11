@@ -1,0 +1,58 @@
+.profile_items {
+  height: 100vh;
+  padding: 60px 0;
+  background: #5FA8D340;
+}
+
+.profile_item {
+  height: 190px;
+  width: 90%;
+  margin: 20px auto 0;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.profile_bio_left {
+  float: left;
+  margin: 20px 0 0 10px;
+}
+
+.profile_bio_right {
+  margin: 30px 0 0 170px;
+}
+
+.profile_your_name {
+  font-size: 18px;
+  line-height: 27px;
+  color: #70757A;
+}
+
+.profile_your_introduction {
+  padding: 10px 10px 0 0;
+  font-size: 16px;
+  line-height: 20px;
+  color: #70757A;
+}
+
+.profile_your_avatar {
+
+}
+
+.fa-user-color {
+  color: #C4C4C4;
+}
+
+.profile_setting {
+  display: inline-block;
+  margin: 40px 0 180px 0;
+  background: #1B4965;
+  padding: 6px 28px;
+  border-radius: 20px;
+  font-family: Hiragino Kaku Gothic ProN;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 18px;
+  color: #FFFFFF;
+}

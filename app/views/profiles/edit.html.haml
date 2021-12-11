@@ -1,0 +1,15 @@
+-# #modal.modal
+-#   .modal_content
+-#     .dli-close#modal_close
+.modal_body
+  =form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+    .form_items 
+      =f.label :nickname, '名前', class: 'form_label'
+      =f.text_field :nickname, id: 'event_form_name', class: 'form_name'
+    .form_items
+      =f.label :introduction, '自己紹介 or 目標 or etc...',  class: 'form_label'
+      =f.text_area :introduction, id: 'event_form_content', class: 'form_content'
+    .btn_wrapper
+      = f.submit type: "submit", value: "登録", id: 'event_form_btn', class: 'form_btn'
+-# 最後にformのcssやhtmlを統一
+        
