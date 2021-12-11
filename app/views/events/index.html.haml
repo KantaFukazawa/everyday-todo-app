@@ -3,21 +3,6 @@
     #calendar
     #calendar_day
       .calendar_day_items
-        - @events.each do |event|
-          #calendar_day_item.calendar_day_item 
-            %p.day_time= event.start
-            %p.day_title 筋トレ
-            .day_content
-              %p
-              ランニング 30分
-              %br
-              ベンチプレス 20~30
-              %br
-              アームカール 20~30
-              %br
-              サイドレイズ 20~30
-        .calendar_day_add#modal_open_day_add
-          %span.dli-plus
 #modal.modal
   .modal_content
     .dli-close#modal_close

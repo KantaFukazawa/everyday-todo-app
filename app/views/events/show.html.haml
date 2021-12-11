@@ -1,2 +1,5 @@
-%h1 Schedules#show
-%p Find me in app/views/schedules/show.html.erb
+.container 
+  - @event.each do |event|
+    #calendar_day_item.calendar_day_item
+      %p.day_time= event.start
+      %p.day_title= event.title

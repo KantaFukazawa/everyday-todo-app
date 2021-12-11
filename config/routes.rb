@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   authenticated :user do
     root :to => 'events#index', :as => "user_authenticated_root"
-    resources :events, only:[:index, :new, :create, :update, :destroy] 
+    resources :events, only:[:index, :show , :new, :create] 
   end
   root 'top#index'
   

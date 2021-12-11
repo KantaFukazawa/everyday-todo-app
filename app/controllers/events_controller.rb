@@ -10,6 +10,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    date = params[:date]
+    query = "select * from events where to_char(start, 'YYYY-MM-DD') = ?"
+    @event = Event.find_by_sql([query, date]);
+  end
+
   def create
     @event = current_user.events.build(event_params)
     @event.save!
