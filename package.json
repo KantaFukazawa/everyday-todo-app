@@ -2,6 +2,7 @@
   "name": "new_todo_app",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.16.7",
     "@fullcalendar/core": "^5.9.0",
     "@fullcalendar/daygrid": "^5.9.0",
     "@fullcalendar/interaction": "^5.9.0",
@@ -10,7 +11,12 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "axios": "^0.21.4",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "jquery": "^3.6.0",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react_ujs": "^2.6.1",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
