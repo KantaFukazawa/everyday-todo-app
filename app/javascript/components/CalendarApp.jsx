@@ -5,6 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import FullCalendar from '@fullcalendar/react' ;
 import dayGridPlugin from '@fullcalendar/daygrid' ;
 import interactionPlugin from '@fullcalendar/interaction';
@@ -31,10 +32,7 @@ export default class CalendarApp extends React.Component {
           dayCellContent={this.dayCellContent}
           eventColor='#63ceef'
           eventTextColor='#000000'
-          events={[
-            { title: 'event 1', date: '2022-02-01' },
-            { title: 'event 2', date: '2022-02-02' }
-          ]}
+          events={'/events.json'}
           select={this.handleDateSelect}
           />  
       </div>    
