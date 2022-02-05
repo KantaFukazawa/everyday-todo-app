@@ -9,10 +9,8 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'hello_react'
   %body
-    = react_component('HelloMessage', name: 'Mike')
-    -# = render 'layouts/header'
-    -# %p.notice= notice
-    -# %p.alert= alert
-    -# = yield
+    = render 'layouts/header'
+    %p.notice= notice
+    %p.alert= alert
+    = yield
