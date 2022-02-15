@@ -1,0 +1,27 @@
+.container
+  .calendar_page
+    #root
+    #calendar_day
+      .calendar_day_items
+      -# .calendar_day_add#modal_open_day_add
+      -#   %span.dli-plus
+
+-# #modal.modal
+-#   .modal_content
+-#     .dli-close#modal_close
+-#     .modal_body
+-#       =form_with(model: @event, url: events_path, method: 'post', local: true) do |f|
+-#         .form_items 
+-#           =f.label :title, 'タイトル', class: 'form_label'
+-#           =f.text_field :title, id: 'event_form_name', class: 'form_name'
+-#         .form_items 
+-#           =f.label :start, '時間', class: 'form_label'
+-#           =f.datetime_field :start, id: 'event_start_datetime', class: 'datetime_field start_datetime'
+-#           %span.time_item ~
+-#           =f.datetime_field :end, id: 'event_end_datetime', class: 'datetime_field end_datetime'
+-#         .form_items
+-#           =f.label :content, '内容',  class: 'form_label'
+-#           =f.text_area :content, id: 'event_form_content', class: 'form_content'
+-#         .btn_wrapper
+-#           = f.submit type: "submit", value: "保存", id: 'event_form_btn', class: 'form_btn'
+        
