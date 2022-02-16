@@ -2,40 +2,33 @@ class Api::V1::EventsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create, :update, :destroy]
 
   def index
-    @events = Event.all
-    @event = Event.new
-    respond_to do |format|
-      format.html
-      format.json {render :json => @events}
-    end
+    events = Event.all
+    render json: events
   end
 
   def show
-    date = params[:date]
-    query = "select * from events where to_char(start, 'YYYY-MM-DD') = ?"
-    @event = Event.find_by_sql([query, date]);
   end
 
   def create
-    @event = current_user.events.build(event_params)
-    @event.save!
-    respond_to do |format|
-      format.html
-      format.json {render :json => @events}
+    event = current_user.events.build(event_params)
+    if events.save
+      render json: events
+    else
+      render json: events.errors, status: 422
     end
   end
 
   def update
-    @event = current_user.events.find(params[:id])
-    if @event.update(event_params)
-      redirect_to root_path
+    event = current_user.events.find(params[:id])
+    if events.update(event_params)
+      render json: events
     else
-      flash.now[:error] = '更新できませんでした'
+      render json: events.errors, status: 422
     end
   end
 
   def destroy
-    @event = current_user.events.find(params[:id])
+    event = current_user.events.find(params[:id])
     event.destroy!
     redirect_to root_path, notice: '削除しました'
   end
