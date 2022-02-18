@@ -18,14 +18,14 @@
 .calendar {
   position: absolute;
   left: 0;
-  width: 57%;
+  width: 63%;
 }
 
 #calendar_day {
   position: absolute;
   right: 0;
   top: 0;
-  width: 40%;
+  width: 36%;
   height: 100vh;
   background: #5FA8D340;
 }
@@ -69,152 +69,6 @@
   font-size: 14px;
   line-height: 16px;
   color: #70757A;
-}
-
-.calendar_day_add {
-  height: 60px;
-  width: 500px;
-  max-width: 95%;
-  margin:20px auto 0;
-  background: rgba(27, 73, 101, 0.5);
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.dli-plus {
-  position: relative;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  display: inline-block;
-  vertical-align: middle;
-  color: #C4C4C4;
-  line-height: 1;
-  width: 35px;
-  height: 7px;
-  background: currentColor;
-  border-radius: 0.1em;
-  
-}
-
-.dli-plus::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  border-radius: inherit;
-  transform: rotate(90deg);
-}
-
-#modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
-}
-
-.modal_content {
-  background-color: #fff;
-  width: 600px;
-  height: 62vh;
-  min-width: 40%;
-  margin: 100px auto;
-  border-radius: 30px;
-}
-
-.dli-close {
-  display: inline-block;
-  vertical-align: middle;
-  color: #333;
-  line-height: 1;
-  width: 1.5em;
-  height: 0.1em;
-  background: currentColor;
-  border-radius: 0.1em;
-  position: relative;
-  top: 20px;
-  left: 20px;
-  transform: rotate(45deg);
-  cursor: pointer;
-}
-
-.dli-close::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  border-radius: inherit;
-  transform: rotate(90deg);
-}
-
-.modal_body {
-  margin: 40px 0 20px 0;
-}
-
-.form {
-
-}
-
-.form_items {
-  margin: 20px 0 0 30px;
-}
-
-.form_label {
-  display: block;
-  padding: 0 0 0 0;
-  font-size: 18px;
-  line-height: 42px;
-  color: #70757A;
-}
-
-.form_name {
-  padding: 1px 1px 1px 5px;
-  width: 530px;
-  line-height: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  border-radius: 10px;
-}
-
-.datetime_field {
-  display: inline-block;
-  padding: 0 10px 0 10px;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  box-sizing: border-box;
-}
-
-.form_content {
-  padding: 10px 0 0 10px;
-  width: 530px;
-  height: 150px;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  border-radius: 10px;
-}
-
-.form_btn {
-  display: block;
-  margin: 10px auto 0;
-  padding: 10px 25px;
-  color: #FFFFFF;
-  background: #1B4965;
-  border-radius: 25px;
 }
 
 .event_p {
