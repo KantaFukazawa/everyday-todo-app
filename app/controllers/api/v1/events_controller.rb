@@ -2,7 +2,7 @@ class Api::V1::EventsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create, :update, :destroy]
 
   def index
-    events = Event.all
+    events = Event.all.order(:start)
     render json: events
   end
 
