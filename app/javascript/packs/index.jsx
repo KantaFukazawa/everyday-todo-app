@@ -5,32 +5,16 @@
 import React, { useState }  from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom';
-import Calendar from '../components/Calendar'
-import AddEvent from '../components/AddEvent'
-import ModalBtn from '../components/ModalBtn'
+import App from '../components/App'
 
 document.addEventListener('DOMContentLoaded', () => {
 
   ReactDOM.render(
     <BrowserRouter>
-      <Calendar/>
+      <App/>
     </BrowserRouter>,
     document.querySelector('#root'),
   )
-
-  ReactDOM.render(
-    <BrowserRouter>
-      <ModalBtn/>
-    </BrowserRouter>,
-    document.querySelector('#modal_btn'),
-  )
-
-  ReactDOM.render(
-    <BrowserRouter>
-      <AddEvent show={show}/>
-    </BrowserRouter>,
-    document.querySelector('#modal'),
-  );
 });
 
 

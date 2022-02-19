@@ -1,8 +1,83 @@
-import React from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
-import ModalBtn from '../components/ModalBtn'
+import React,  { useState } from 'react';
+import { Switch, Route, Link } from 'react-router-dom'
+import styled from 'styled-components'
+import Calendar from '../components/Calendar'
 
+//---------------メインページ---------------//
+const Container = styled.div`
+  max-width: 90%;
+  margin: 0 auto;
+`
+const CalendarPage = styled.div`
+  position: relative;
+`
+const CalendarZone = styled.div`
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 80px 0;
+`
+const CalendarDay = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 36%;
+  height: 100vh;
+  background: #5FA8D340;
+`
+const CalendarDayItem = styled.div`
+  height: auto;
+  width: 500px;
+  max-width: 95%;
+  margin:20px auto 0;
+  padding: 20px 0 20px 20px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  border-radius: 10px
+
+`
+const CalendarDayItems = styled.div`
+  padding: 100px 0 0 0;
+`
+const CalendarDayBtn = styled.button`
+  height: 60px;
+  width: 500px;
+  max-width: 95%;
+  margin:20px 10px 0;
+  background: rgba(27, 73, 101, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  border-radius: 10px;
+  cursor: pointer;
+`
+const PlusIcon = styled.span`
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  display: inline-block;
+  vertical-align: middle;
+  color: #C4C4C4;
+  line-height: 1;
+  width: 35px;
+  height: 7px;
+  background: currentColor;
+  border-radius: 0.1em;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    transform: rotate(90deg);
+  }
+`
+//---------------モーダル---------------//
 const OverRay = styled.div`
   position: fixed;
   z-index: 999;
@@ -91,12 +166,43 @@ const FormBtn = styled.button`
   background: #1B4965;
   border-radius: 25px;
 `
+  
+//---------------メインページ(View)---------------//
 
-function AddEvent(props) {
-  if (props.show) {
+function App() {
+  const [show, setShow] = useState(false)
+  const openModal = () => {
+  setShow(true)
+  }
+  return (
+    <>
+    <Container>
+      <CalendarPage>
+        <CalendarZone>
+          <Route exact path='/' component={Calendar} />
+        </CalendarZone>
+        <CalendarDay>
+          <CalendarDayItems>
+          </CalendarDayItems>
+          <CalendarDayBtn onClick={openModal}>
+            <PlusIcon></PlusIcon>
+          </CalendarDayBtn>
+          <AddEvent show={show } setShow={setShow}/>
+        </CalendarDay>
+      </CalendarPage>
+    </Container>
+    </>
+  )
+}
+
+export default App
+
+//---------------モーダル(View)---------------//
+function AddEvent({show, setShow}) {
+  if (show) {
     return (
     <>
-      <OverRay>
+      <OverRay onClick={() => setShow(false)}>
         <ModalContent>
           <ModalCloseBtn onClick={() => setShow(false)}></ModalCloseBtn>
           <ModalBody>
@@ -128,5 +234,3 @@ function AddEvent(props) {
     return null;
   }
 }
-
-export default AddEvent
