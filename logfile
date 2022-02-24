@@ -10,3 +10,30 @@
 2022-02-16 19:31:38.229 JST [14553] FATAL:  database "new_todo_app_development" does not exist
 2022-02-16 19:31:39.451 JST [14557] FATAL:  database "new_todo_app_development" does not exist
 2022-02-16 19:32:18.420 JST [14587] FATAL:  database "new_todo_app_development" does not exist
+2022-02-18 16:25:49.205 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:25:49.214 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:25:59.973 JST [14398] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:26:00.027 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:26:00.033 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:26:10.744 JST [68911] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:26:20.430 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:26:20.441 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:26:31.271 JST [14398] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:26:31.352 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:26:31.366 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:26:42.006 JST [68946] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:26:49.214 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:26:49.230 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:26:59.894 JST [14398] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:26:59.976 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:26:59.989 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:27:10.513 JST [68996] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:27:20.427 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:27:20.441 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:27:31.206 JST [14398] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:27:31.246 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:27:31.255 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:27:41.973 JST [69024] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:27:49.197 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:27:49.202 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:27:59.792 JST [14398] LOG:  using stale statistics instead of current ones because stats collector is not responding

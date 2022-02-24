@@ -191,7 +191,7 @@ function App() {
           <CalendarDayBtn onClick={openModal}>
             <PlusIcon></PlusIcon>
           </CalendarDayBtn>
-          <AddEvent show={show } setShow={setShow}/>
+          <Modal show={show } setShow={setShow}/>
         </CalendarDay>
       </CalendarPage>
     </Container>
@@ -202,38 +202,47 @@ function App() {
 export default App
 
 //---------------モーダル(View)---------------//
-function AddEvent({show, setShow}) {
+function Modal({show, setShow}) {
   if (show) {
     return (
     <>
       <OverRay onClick={() => setShow(false)}></OverRay>
       <ModalContent>
         <ModalCloseBtn onClick={() => setShow(false)}></ModalCloseBtn>
-        <ModalBody>
-          <FormItems>
-            <FormLabel name='title'>タイトル</FormLabel>
-            <FormName name='title' ></FormName>
-          </FormItems>
-          <FormItems>
-            <FormLabel name='start'>時間</FormLabel>
-            <DateTime name='start' type='datetime-local'></DateTime>
-            <span> </span>
-            <span>〜</span>
-            <span> </span>
-            <DateTime name='end' type='datetime-local'></DateTime>
-          </FormItems>
-          <FormItems>
-            <FormLabel name='content'>内容</FormLabel>
-            <FormContent name='content'></FormContent>
-          <div class='btn_wrapper'>
-            <FormBtn type='submit' value='保存'>保存</FormBtn>
-          </div>
-          </FormItems>
-        </ModalBody>
+        <AddEvent/>
       </ModalContent>
     </>
     )
   } else {
     return null;
   }
+}
+
+function AddEvent() {
+  
+  return(
+    <>
+      <ModalBody>
+        <FormItems>
+          <FormLabel name='title'>タイトル</FormLabel>
+          <FormName name='title' ></FormName>
+        </FormItems>
+        <FormItems>
+          <FormLabel name='start'>時間</FormLabel>
+          <DateTime name='start' type='datetime-local'></DateTime>
+          <span> </span>
+          <span>〜</span>
+          <span> </span>
+          <DateTime name='end' type='datetime-local'></DateTime>
+        </FormItems>
+        <FormItems>
+          <FormLabel name='content'>内容</FormLabel>
+          <FormContent name='content'></FormContent>
+        <div class='btn_wrapper'>
+          <FormBtn type='submit' value='保存'>保存</FormBtn>
+        </div>
+        </FormItems>
+      </ModalBody>
+    </>
+  )
 }
