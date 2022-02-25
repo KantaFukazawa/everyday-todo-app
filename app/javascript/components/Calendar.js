@@ -14,7 +14,7 @@ function Calendar() {
 
   const handleDateSelect = (info) => {
     const startDate = new Date(info.start).toLocaleDateString()
-    console.log(events)
+
   }
 
   return (

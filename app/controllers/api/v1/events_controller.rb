@@ -11,10 +11,10 @@ class Api::V1::EventsController < ApplicationController
 
   def create
     event = current_user.events.build(event_params)
-    if events.save
-      render json: events
+    if event.save
+      render json: event
     else
-      render json: events.errors, status: 422
+      render json: event.errors, status: 422
     end
   end
 

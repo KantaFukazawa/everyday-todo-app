@@ -2,6 +2,12 @@ import React,  { useState } from 'react';
 import { Switch, Route, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Calendar from '../components/Calendar'
+import { end } from 'worker-farm';
+import axios from 'axios';
+import { csrfToken } from '@rails/ujs';
+
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
+
 
 //---------------メインページ---------------//
 const Container = styled.div`
@@ -170,6 +176,7 @@ const FormBtn = styled.button`
   background: #1B4965;
   border-radius: 25px;
 `
+
   
 //---------------メインページ(View)---------------//
 
@@ -219,30 +226,67 @@ function Modal({show, setShow}) {
 }
 
 function AddEvent() {
-  
+  const initialDate = new Date()
+  const [title, setTitle] = useState('')
+  const [start, setStart] = useState(initialDate)
+  const [end, setEnd] = useState(initialDate.setHours(initialDate.getHours()+1))
+  const [content, setContent] = useState('')
+
+  const changeTitle = (e) => {
+    setTitle(e.target.value)
+  }
+
+  const changeStart = (e) => {
+    setStart(e.target.value)
+  }
+
+  const changeEnd = (e) => {
+    setEnd(e.target.value)
+  }
+
+  const changeContent = (e) => {
+    setContent(e.target.value)
+  }
+
+  const createEvent = () => {
+    axios.post('api/v1/events', {
+      event: {
+        title: title,
+        start: start,
+        end: end,
+        content: content
+      }
+    })
+    .then(
+      window.location.reload()
+    )
+  }
+
   return(
     <>
       <ModalBody>
         <FormItems>
           <FormLabel name='title'>タイトル</FormLabel>
-          <FormName name='title' ></FormName>
+          <FormName name='title' onChange={changeTitle}></FormName>
         </FormItems>
         <FormItems>
           <FormLabel name='start'>時間</FormLabel>
-          <DateTime name='start' type='datetime-local'></DateTime>
+          <DateTime name='start' type='datetime-local' onChange={changeStart}></DateTime>
           <span> </span>
           <span>〜</span>
           <span> </span>
-          <DateTime name='end' type='datetime-local'></DateTime>
+          <DateTime name='end' type='datetime-local' onChange={changeEnd}></DateTime>
         </FormItems>
         <FormItems>
           <FormLabel name='content'>内容</FormLabel>
-          <FormContent name='content'></FormContent>
+          <FormContent name='content' onChange={changeContent}></FormContent>
         <div class='btn_wrapper'>
-          <FormBtn type='submit' value='保存'>保存</FormBtn>
+          <FormBtn type='submit' value='保存' onClick={createEvent}>保存</FormBtn>
         </div>
         </FormItems>
       </ModalBody>
     </>
   )
 }
+
+
