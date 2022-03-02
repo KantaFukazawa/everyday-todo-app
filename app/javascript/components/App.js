@@ -1,7 +1,7 @@
 import React,  { useState } from 'react';
 import { Switch, Route, Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Calendar from '../components/Calendar'
+import CalendarFunc from '../components/CalendarFunc'
 import { end } from 'worker-farm';
 import axios from 'axios';
 import { csrfToken } from '@rails/ujs';
@@ -190,7 +190,9 @@ function App() {
     <Container>
       <CalendarPage>
         <CalendarZone>
-          <Route exact path='/' component={Calendar} />
+          <div className= 'Calendar'>
+            <Route exact path='/' component={CalendarFunc} />
+          </div>
         </CalendarZone>
         <CalendarDay>
           <CalendarDayItems>
@@ -260,6 +262,10 @@ function AddEvent() {
     .then(
       window.location.reload()
     )
+          .catch((e) => {
+        window.alert('Error')
+        console.log(e)
+    })
   }
 
   return(
