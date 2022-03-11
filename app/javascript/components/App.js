@@ -1,13 +1,14 @@
 import React,  { useState } from 'react';
+import {  useLocation } from "react-router";
 import { Switch, Route, Link } from 'react-router-dom'
 import styled from 'styled-components'
-import CalendarFunc from '../components/CalendarFunc'
+import Calendar, {startDateStr} from './Calendar'
 import { end } from 'worker-farm';
 import axios from 'axios';
 import { csrfToken } from '@rails/ujs';
+import DayList from './DayList';
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
-
 
 //---------------メインページ---------------//
 const Container = styled.div`
@@ -30,21 +31,6 @@ const CalendarDay = styled.div`
   width: 36%;
   height: 100vh;
   background: #5FA8D340;
-`
-const CalendarDayItem = styled.div`
-  height: auto;
-  width: 500px;
-  max-width: 95%;
-  margin:20px auto 0;
-  padding: 20px 0 20px 20px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  border-radius: 10px
-
-`
-const CalendarDayItems = styled.div`
-  padding: 100px 0 0 0;
 `
 const CalendarDayBtn = styled.button`
   height: 60px;
@@ -177,26 +163,42 @@ const FormBtn = styled.button`
   border-radius: 25px;
 `
 
-  
+const today = new Date()
+const todaysMonth = today.getMonth()
+const todaysDay = today.getDate()
+const currentDate = ( todaysMonth + '-' + todaysDay)
+ 
 //---------------メインページ(View)---------------//
 
 function App() {
   const [show, setShow] = useState(false)
+  const [events, setEvents] = React.useState(null);
+
+  React.useEffect(() => {
+    axios.get("/api/v1/events.js")
+      .then(res => {
+        const events =setEvents(res.data)
+      })
+  }, []);
+
   const openModal = () => {
   setShow(true)
   }
+  
+
   return (
     <>
     <Container>
       <CalendarPage>
         <CalendarZone>
           <div className= 'Calendar'>
-            <Route exact path='/' component={CalendarFunc} />
+            <Calendar events={events}/>
           </div>
         </CalendarZone>
         <CalendarDay>
-          <CalendarDayItems>
-          </CalendarDayItems>
+          <Switch>
+            <DayList events={events} />
+          </Switch>
           <CalendarDayBtn onClick={openModal}>
             <PlusIcon></PlusIcon>
           </CalendarDayBtn>

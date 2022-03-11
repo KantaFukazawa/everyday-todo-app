@@ -4,13 +4,11 @@ import FullCalendar from '@fullcalendar/react' ;
 import dayGridPlugin from '@fullcalendar/daygrid' ;
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from "@fullcalendar/timegrid";
-import allLocales from '@fullcalendar/core/locales-all';
-import { all } from 'q';
-import { end } from 'worker-farm';
-
-export var oneDayEvents;
+import allLocales from '@fullcalendar/core/locales-all';  
 
 function Calendar(props) {
+
+  const events = props
 
   const dayCellContent = (e) => {
     (e.dayNumberText = e.dayNumberText.replace('日', ''))
@@ -21,60 +19,51 @@ function Calendar(props) {
   }
 
   const handleDateSelect = () => {
-    console.log(props.events)
+    console.log(events)
   }
 
   const calendarRef = React.useRef()
 
-  const [events, setEvents] = React.useState(null);
-
-  React.useEffect(() => {
-    axios.get("/api/v1/events.js")
-      .then(res => {
-        let events =setEvents(res.data)
-      })
-  }, []);
-
   const onClickHandler = (info) => {
-    const clickInfo = info.startStr
-    const startDate = (clickInfo + 'T00:00:00.000Z');
-    const endDate = (clickInfo +'T23:59:59.000Z');
+    const startDateStr = info.startStr
+    const startDate = (startDateStr + 'T00:00:00.000Z');
+    const endDate = (startDateStr +'T23:59:59.000Z');
 
-    events.map((e) => {
-      const eventStart = e.start
-      if ((startDate <= eventStart) && ((eventStart) <= endDate)) {
-        oneDayEvents = e
-      }
-    })
+    // events.map((event) => {
+    //   let eventStart = event.start
+    //   if ((startDate <= eventStart) && ((eventStart) <= endDate)) {
+    //     console.log(event)
+    //   }
+    // })
   }
-
 
   return (
     <>
-      <FullCalendar
-        ref={calendarRef}
-        plugins={[
-          dayGridPlugin,
-          timeGridPlugin,
-          interactionPlugin
-        ]}
-        initialView='dayGridMonth'
-        selectable={true}
-        locales={allLocales}
-        locale='ja'
-        timeZone='Asia/Tokyo'
-        firstDay={0}
-        businessHours={true}
-        dayCellContent={dayCellContent}
-        eventColor='#63ceef'
-        eventTextColor='#000000'
-        contentHeight='75vh'
-        events={'/api/v1/events.js'}
-        eventTimeFormat={{ hour: "2-digit", minute: "2-digit" }}
-        select={onClickHandler}
-        />  
+    <FullCalendar
+    ref={calendarRef}
+    plugins={[
+      dayGridPlugin,
+      timeGridPlugin,
+      interactionPlugin
+    ]}
+    initialView='dayGridMonth'
+    selectable={true}
+    locales={allLocales}
+    locale='ja'
+    timeZone='Asia/Tokyo'
+    firstDay={0}
+    businessHours={true}
+    dayCellContent={dayCellContent}
+    eventColor='#63ceef'
+    eventTextColor='#000000'
+    contentHeight='75vh'
+    events={events}
+    eventTimeFormat={{ hour: "2-digit", minute: "2-digit" }}
+    select={onClickHandler}
+    />  
     </>   
   )
 }
 export default Calendar
+
 
