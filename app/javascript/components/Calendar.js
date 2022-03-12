@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import FullCalendar from '@fullcalendar/react' ;
 import dayGridPlugin from '@fullcalendar/daygrid' ;
@@ -29,12 +29,12 @@ function Calendar(props) {
     const startDate = (startDateStr + 'T00:00:00.000Z');
     const endDate = (startDateStr +'T23:59:59.000Z');
 
-    // events.map((event) => {
-    //   let eventStart = event.start
-    //   if ((startDate <= eventStart) && ((eventStart) <= endDate)) {
-    //     console.log(event)
-    //   }
-    // })
+    events.map((event) => {
+      let eventStart = event.start
+      if ((startDate <= eventStart) && ((eventStart) <= endDate)) {
+        return console.log(event)
+      }
+    })
   }
 
   return (

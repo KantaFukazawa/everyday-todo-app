@@ -1,4 +1,4 @@
-import React,  { useState } from 'react';
+import React,  { useState, useEffect } from 'react';
 import {  useLocation } from "react-router";
 import { Switch, Route, Link } from 'react-router-dom'
 import styled from 'styled-components'
@@ -175,9 +175,9 @@ function App() {
   const [events, setEvents] = React.useState(null);
 
   React.useEffect(() => {
-    axios.get("/api/v1/events.js")
+    axios.get('/api/v1/events.js')
       .then(res => {
-        const events =setEvents(res.data)
+        let events = setEvents(res.data)
       })
   }, []);
 
@@ -192,13 +192,11 @@ function App() {
       <CalendarPage>
         <CalendarZone>
           <div className= 'Calendar'>
-            <Calendar events={events}/>
+            <Calendar events={events} />
           </div>
         </CalendarZone>
         <CalendarDay>
-          <Switch>
-            <DayList events={events} />
-          </Switch>
+          <DayList events={events} />
           <CalendarDayBtn onClick={openModal}>
             <PlusIcon></PlusIcon>
           </CalendarDayBtn>

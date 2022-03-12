@@ -51,23 +51,25 @@ function DayList(props) {
 
   let events = props.events
 
+  const EventsList = events.map(function (val, index){
+    console.log(`${val},${index}`);
+  });
+
   return (
     <>
-    {events.map((event) => {
       <CalendarDayItem>
         <CalendarDayItems>
           <DayTime>
-            <EventP>{event.start}</EventP>
+            {console.log(EventsList)}
           </DayTime>
           <DayTitle>
-            <EventP>{event.title}</EventP>
+            <EventP></EventP>
           </DayTitle>
           <DayContent>
-            <EventP>{event.content}</EventP>
+            <EventP></EventP>
           </DayContent>
         </CalendarDayItems>
       </CalendarDayItem> 
-    })}
 
     </>
   )
