@@ -3,7 +3,6 @@ import {  useLocation } from "react-router";
 import { Switch, Route, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Calendar, {startDateStr} from './Calendar'
-import { end } from 'worker-farm';
 import axios from 'axios';
 import { csrfToken } from '@rails/ujs';
 import DayList from './DayList';
@@ -31,6 +30,7 @@ const CalendarDay = styled.div`
   width: 36%;
   height: 100vh;
   background: #5FA8D340;
+  padding: 100px 0 0 0;
 `
 const CalendarDayBtn = styled.button`
   height: 60px;
@@ -177,14 +177,41 @@ function App() {
   React.useEffect(() => {
     axios.get('/api/v1/events.js')
       .then(res => {
-        let events = setEvents(res.data)
+        setEvents(res.data)
       })
   }, []);
 
   const openModal = () => {
   setShow(true)
   }
-  
+
+  /////Calendar/////
+
+  const dayCellContent = (e) => {
+    (e.dayNumberText = e.dayNumberText.replace('日', ''))
+  }
+
+  const handleDateSelect = () => {
+    console.log(events)
+  }
+
+  const calendarRef = React.useRef()
+
+  const onClickHandler = (info) => {
+    const startDateStr = info.startStr
+    const startDate = (startDateStr + 'T00:00:00.000Z');
+    const endDate = (startDateStr +'T23:59:59.999Z');
+
+    events?.map((event) => {
+      let eventStart = event.start
+      if (( startDate <= eventStart ) && (eventStart <= endDate)) {
+        return console.log(event)
+      }
+    })
+  };
+
+  /////DayList/////
+
 
   return (
     <>
@@ -192,11 +219,19 @@ function App() {
       <CalendarPage>
         <CalendarZone>
           <div className= 'Calendar'>
-            <Calendar events={events} />
+            <Calendar
+             events={events} 
+             dayCellContent={dayCellContent} 
+             handleDateSelect={handleDateSelect}
+             calendarRef={calendarRef}
+             onClickHandler={onClickHandler}
+            />
           </div>
         </CalendarZone>
         <CalendarDay>
-          <DayList events={events} />
+          <DayList 
+          events={events}
+          />
           <CalendarDayBtn onClick={openModal}>
             <PlusIcon></PlusIcon>
           </CalendarDayBtn>
@@ -267,6 +302,7 @@ function AddEvent() {
         console.log(e)
     })
   }
+
 
   return(
     <>

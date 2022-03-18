@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import FullCalendar from '@fullcalendar/react' ;
 import dayGridPlugin from '@fullcalendar/daygrid' ;
 import interactionPlugin from '@fullcalendar/interaction';
@@ -8,34 +7,10 @@ import allLocales from '@fullcalendar/core/locales-all';
 
 function Calendar(props) {
 
-  const events = props
-
-  const dayCellContent = (e) => {
-    (e.dayNumberText = e.dayNumberText.replace('日', ''))
-  }
-
-  const startDate = (info) => {
-    info.startStr
-  }
-
-  const handleDateSelect = () => {
-    console.log(events)
-  }
-
-  const calendarRef = React.useRef()
-
-  const onClickHandler = (info) => {
-    const startDateStr = info.startStr
-    const startDate = (startDateStr + 'T00:00:00.000Z');
-    const endDate = (startDateStr +'T23:59:59.000Z');
-
-    events.map((event) => {
-      let eventStart = event.start
-      if ((startDate <= eventStart) && ((eventStart) <= endDate)) {
-        return console.log(event)
-      }
-    })
-  }
+  const events = props.events
+  const dayCellContent = props.dayCellContent
+  const calendarRef = props.calendarRef
+  const onClickHandler = props.onClickHandler
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 
@@ -6,7 +6,7 @@ const CalendarDayItem = styled.div`
   height: auto;
   width: 500px;
   max-width: 95%;
-  margin: 80px auto 0;
+  margin: 10px auto 0;
   padding: 20px 0 20px 20px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.25);
@@ -14,6 +14,18 @@ const CalendarDayItem = styled.div`
   border-radius: 10px
 `
 const CalendarDayItems = styled.div`
+&:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+`
+const DayItemsLeft = styled.div`
+  float: left
+`
+const DayItemsRight = styled.div`
 `
 const DayTime = styled.p`
   display: inline-block;
@@ -24,14 +36,14 @@ const DayTime = styled.p`
 `
 const DayTitle = styled.p `
   display: inline-block;
-  padding: 0 0 0 10px;
+  padding: 0 0 0 20px;
   font-family: Roboto;
   font-size: 18px;
   line-height: 21px;
   color: #000000;
 `
-const DayContent= styled.picture `
-  padding: 10px 0 0 5px;
+const DayContent= styled.p `
+  padding: 10px 0 0 80px;
   font-family: Roboto;
   font-size: 14px;
   line-height: 16px;
@@ -41,36 +53,76 @@ const EventP= styled.div `
 `
 //---------------(View)---------------//
 
-function DayList(props) { 
-  let todaysDateTime = new Date();
-  let year = todaysDateTime.getFullYear();
-  let month = todaysDateTime.getMonth();
-  let day = todaysDateTime.getDate();
-
-  let todaysDate = (year + '-' + month + '-' + day) 
-
+function DayList(props) {  
   let events = props.events
 
-  const EventsList = events.map(function (val, index){
-    console.log(`${val},${index}`);
-  });
+  let todaysDateTime = new Date();
+  let year = todaysDateTime.getFullYear();
+  let month = todaysDateTime.getMonth() + 1;
+  let day = todaysDateTime.getDate();
+
+  let todaysDateStr = (year + '-' + '0' + month + '-' + day + 'T00:00:00.000Z')
+  let todaysDateEnd = (year + '-' + '0' + month + '-' + day + 'T23:59:59.999Z')
 
   return (
     <>
-      <CalendarDayItem>
-        <CalendarDayItems>
-          <DayTime>
-            {console.log(EventsList)}
-          </DayTime>
-          <DayTitle>
-            <EventP></EventP>
-          </DayTitle>
-          <DayContent>
-            <EventP></EventP>
-          </DayContent>
-        </CalendarDayItems>
-      </CalendarDayItem> 
+      {
+        events?.map((event) => {
+          let eventStart = event.start
+          if ((todaysDateStr <= eventStart) && (eventStart <= todaysDateEnd)) {
+            const eventStrISO = event.start.slice(0, 19) + '+09:00'
+            const eventStrTs = Date.parse(eventStrISO);
+            const eventStrDt = new Date(eventStrTs);
+            
+            function toDoubleDigits(i) {
+            if (i < 10) {
+            i = "0" + i;
+            }
+            return i;
+            }
 
+            let strMonth = eventStrDt.getMonth() + 1
+            let strDate = eventStrDt.getDate()
+            let strHours = eventStrDt.getHours()
+            let strMinutes = toDoubleDigits(eventStrDt.getMinutes())
+            let todaysStrDate = strMonth + '/' + strDate
+            let plansStrTime = strHours + ':' + strMinutes
+
+            const eventEndISO = event.end.slice(0, 19) + '+09:00'
+            const eventEndTs = Date.parse(eventEndISO);
+            const eventEndDt = new Date(eventEndTs);
+
+            let endMonth = eventEndDt.getMonth() + 1
+            let endDate = eventEndDt.getDate()
+            let endHours = eventEndDt.getHours()
+            let endMinutes = toDoubleDigits(eventEndDt.getMinutes())
+            let plansEndTime = endHours + ':' + endMinutes
+            console.log(plansEndTime)
+            
+            return(
+              <CalendarDayItem>
+                <CalendarDayItems>
+                  <DayItemsLeft>
+                    <DayTime>
+                      <EventP>{plansStrTime}</EventP>
+                      <p>↓</p>
+                      <EventP>{plansEndTime}</EventP>
+                    </DayTime>
+                  </DayItemsLeft>
+                  <DayItemsRight>
+                    <DayTitle>
+                      <EventP>{event.title}</EventP>
+                    </DayTitle>
+                    <DayContent>
+                      <EventP>{event.content}</EventP>
+                    </DayContent>
+                  </DayItemsRight>
+                </CalendarDayItems>
+              </CalendarDayItem>
+            );
+          }
+        })
+      }
     </>
   )
 }
