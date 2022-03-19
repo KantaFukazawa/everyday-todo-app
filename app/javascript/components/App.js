@@ -5,7 +5,8 @@ import styled from 'styled-components'
 import Calendar, {startDateStr} from './Calendar'
 import axios from 'axios';
 import { csrfToken } from '@rails/ujs';
-import DayList from './DayList';
+import TodayDayList from './TodayDayList';
+import SelectDayList from './SelectDayList';
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 
@@ -198,20 +199,22 @@ function App() {
   const calendarRef = React.useRef()
 
   const onClickHandler = (info) => {
+    
+
     const startDateStr = info.startStr
     const startDate = (startDateStr + 'T00:00:00.000Z');
     const endDate = (startDateStr +'T23:59:59.999Z');
+
+    history.pushState(null,null,`/?date=${startDateStr}`); 
 
     events?.map((event) => {
       let eventStart = event.start
       if (( startDate <= eventStart ) && (eventStart <= endDate)) {
         return console.log(event)
       }
-    })
+    });
+
   };
-
-  /////DayList/////
-
 
   return (
     <>
@@ -219,19 +222,26 @@ function App() {
       <CalendarPage>
         <CalendarZone>
           <div className= 'Calendar'>
-            <Calendar
-             events={events} 
-             dayCellContent={dayCellContent} 
-             handleDateSelect={handleDateSelect}
-             calendarRef={calendarRef}
-             onClickHandler={onClickHandler}
-            />
+            <Route path='/'>
+              <Calendar
+              events={events} 
+              dayCellContent={dayCellContent} 
+              handleDateSelect={handleDateSelect}
+              calendarRef={calendarRef}
+              onClickHandler={onClickHandler}
+              />
+            </Route>
           </div>
         </CalendarZone>
         <CalendarDay>
-          <DayList 
-          events={events}
-          />
+          <Switch>
+            <Route path='/'>
+              <TodayDayList events={events}/>
+            </Route>
+            <Route path='/?date'>
+              <SelectDayList events={events}/>
+            </Route>
+          </Switch>
           <CalendarDayBtn onClick={openModal}>
             <PlusIcon></PlusIcon>
           </CalendarDayBtn>

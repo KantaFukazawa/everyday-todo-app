@@ -53,7 +53,7 @@ const EventP= styled.div `
 `
 //---------------(View)---------------//
 
-function DayList(props) {  
+function SelectDayList(props) {  
   let events = props.events
 
   let todaysDateTime = new Date();
@@ -127,4 +127,6 @@ function DayList(props) {
   )
 }
 
-export default DayList
+export default SelectDayList
+
+
