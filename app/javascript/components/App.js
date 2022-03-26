@@ -173,7 +173,7 @@ const currentDate = ( todaysMonth + '-' + todaysDay)
 
 function App() {
   const [show, setShow] = useState(false)
-  const [events, setEvents] = React.useState(null);
+  const [events, setEvents] = useState(null);
 
   React.useEffect(() => {
     axios.get('/api/v1/events.js')
@@ -200,19 +200,10 @@ function App() {
 
   const onClickHandler = (info) => {
     
+    let startDateStr = info.startStr
+    let startDate = (startDateStr + 'T00:00:00.000Z');
+    let endDate = (startDateStr +'T23:59:59.999Z');
 
-    const startDateStr = info.startStr
-    const startDate = (startDateStr + 'T00:00:00.000Z');
-    const endDate = (startDateStr +'T23:59:59.999Z');
-
-    history.pushState(null,null,`/?date=${startDateStr}`); 
-
-    events?.map((event) => {
-      let eventStart = event.start
-      if (( startDate <= eventStart ) && (eventStart <= endDate)) {
-        return console.log(event)
-      }
-    });
 
   };
 
@@ -238,7 +229,7 @@ function App() {
             <Route path='/'>
               <TodayDayList events={events}/>
             </Route>
-            <Route path='/?date'>
+            <Route path='/'>
               <SelectDayList events={events}/>
             </Route>
           </Switch>

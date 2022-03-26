@@ -54,25 +54,26 @@ const EventP= styled.div `
 //---------------(View)---------------//
 
 function SelectDayList(props) {  
-  let events = props.events
+  // let events = props.events
 
-  let todaysDateTime = new Date();
-  let year = todaysDateTime.getFullYear();
-  let month = todaysDateTime.getMonth() + 1;
-  let day = todaysDateTime.getDate();
+  // let todaysDateTime = new Date();
+  // let year = todaysDateTime.getFullYear();
+  // let month = todaysDateTime.getMonth() + 1;
+  // let day = todaysDateTime.getDate();
 
-  let todaysDateStr = (year + '-' + '0' + month + '-' + day + 'T00:00:00.000Z')
-  let todaysDateEnd = (year + '-' + '0' + month + '-' + day + 'T23:59:59.999Z')
+  // let startDateStr = info.startStr
+  // let startDate = (startDateStr + 'T00:00:00.000Z');
+  // let endDate = (startDateStr +'T23:59:59.999Z');
 
   return (
     <>
-      {
+      {/* {
         events?.map((event) => {
           let eventStart = event.start
-          if ((todaysDateStr <= eventStart) && (eventStart <= todaysDateEnd)) {
-            const eventStrISO = event.start.slice(0, 19) + '+09:00'
-            const eventStrTs = Date.parse(eventStrISO);
-            const eventStrDt = new Date(eventStrTs);
+          if (( startDate <= eventStart ) && (eventStart <= endDate)) {
+            let eventStrISO = event.start.slice(0, 19) + '+09:00'
+            let eventStrTs = Date.parse(eventStrISO);
+            let eventStrDt = new Date(eventStrTs);
             
             function toDoubleDigits(i) {
             if (i < 10) {
@@ -88,9 +89,9 @@ function SelectDayList(props) {
             let todaysStrDate = strMonth + '/' + strDate
             let plansStrTime = strHours + ':' + strMinutes
 
-            const eventEndISO = event.end.slice(0, 19) + '+09:00'
-            const eventEndTs = Date.parse(eventEndISO);
-            const eventEndDt = new Date(eventEndTs);
+            let eventEndISO = event.end.slice(0, 19) + '+09:00'
+            let eventEndTs = Date.parse(eventEndISO);
+            let eventEndDt = new Date(eventEndTs);
 
             let endMonth = eventEndDt.getMonth() + 1
             let endDate = eventEndDt.getDate()
@@ -122,7 +123,7 @@ function SelectDayList(props) {
             );
           }
         })
-      }
+      } */}
     </>
   )
 }

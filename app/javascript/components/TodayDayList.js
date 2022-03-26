@@ -70,9 +70,9 @@ function TodayDayList(props) {
         events?.map((event) => {
           let eventStart = event.start
           if ((todaysDateStr <= eventStart) && (eventStart <= todaysDateEnd)) {
-            const eventStrISO = event.start.slice(0, 19) + '+09:00'
-            const eventStrTs = Date.parse(eventStrISO);
-            const eventStrDt = new Date(eventStrTs);
+            let eventStrISO = event.start.slice(0, 19) + '+09:00'
+            let eventStrTs = Date.parse(eventStrISO);
+            let eventStrDt = new Date(eventStrTs);
             
             function toDoubleDigits(i) {
             if (i < 10) {
@@ -98,6 +98,8 @@ function TodayDayList(props) {
             let endMinutes = toDoubleDigits(eventEndDt.getMinutes())
             let plansEndTime = endHours + ':' + endMinutes
             console.log(plansEndTime)
+
+            
             
             return(
               <CalendarDayItem>

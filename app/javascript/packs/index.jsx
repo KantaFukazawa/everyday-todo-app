@@ -6,12 +6,14 @@ import React, { useState }  from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom';
 import App from '../components/App'
+import { Provider } from "react-redux"
+import store from "../calendar/store/index";
 
 document.addEventListener('DOMContentLoaded', () => {
 
   ReactDOM.render(
     <BrowserRouter>
-      <App/>
+      <App />
     </BrowserRouter>,
     document.querySelector('#root'),
   )
