@@ -53,23 +53,17 @@ const EventP= styled.div `
 `
 //---------------(View)---------------//
 
-function SelectDayList(props) {  
+function TodayDayList(props) {  
   let events = props.events
-
-  let todaysDateTime = new Date();
-  let year = todaysDateTime.getFullYear();
-  let month = todaysDateTime.getMonth() + 1;
-  let day = todaysDateTime.getDate();
-
-  let todaysDateStr = (year + '-' + '0' + month + '-' + day + 'T00:00:00.000Z')
-  let todaysDateEnd = (year + '-' + '0' + month + '-' + day + 'T23:59:59.999Z')
+  let rangeStart = props.rangeStart
+  let rangeEnd = props.rangeEnd
 
   return (
     <>
       {
         events?.map((event) => {
           let eventStart = event.start
-          if ((todaysDateStr <= eventStart) && (eventStart <= todaysDateEnd)) {
+          if ((rangeStart <= eventStart) && (eventStart <= rangeEnd )) {
             const eventStrISO = event.start.slice(0, 19) + '+09:00'
             const eventStrTs = Date.parse(eventStrISO);
             const eventStrDt = new Date(eventStrTs);
@@ -97,7 +91,6 @@ function SelectDayList(props) {
             let endHours = eventEndDt.getHours()
             let endMinutes = toDoubleDigits(eventEndDt.getMinutes())
             let plansEndTime = endHours + ':' + endMinutes
-            console.log(plansEndTime)
             
             return(
               <CalendarDayItem>
@@ -127,6 +120,6 @@ function SelectDayList(props) {
   )
 }
 
-export default SelectDayList
+export default TodayDayList
 
 

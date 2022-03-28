@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import Calendar, {startDateStr} from './Calendar'
 import axios from 'axios';
 import { csrfToken } from '@rails/ujs';
-import TodayDayList from './TodayDayList';
-import SelectDayList from './SelectDayList';
+import DayList from './DayList';
+
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
 
@@ -163,11 +163,6 @@ const FormBtn = styled.button`
   background: #1B4965;
   border-radius: 25px;
 `
-
-const today = new Date()
-const todaysMonth = today.getMonth()
-const todaysDay = today.getDate()
-const currentDate = ( todaysMonth + '-' + todaysDay)
  
 //---------------メインページ(View)---------------//
 
@@ -198,22 +193,19 @@ function App() {
 
   const calendarRef = React.useRef()
 
+  let todaysDateTime = new Date();
+  let year = todaysDateTime.getFullYear();
+  let month = todaysDateTime.getMonth() + 1;
+  let day = todaysDateTime.getDate();
+
+  const [rangeStart, setRangeStart] = useState(year + '-' + '0' + month + '-' + day + 'T00:00:00.000Z')
+  const [rangeEnd, setRangeEnd] = useState(year + '-' + '0' + month + '-' + day + 'T23:59:59.999Z')
+
   const onClickHandler = (info) => {
-    
-
     const startDateStr = info.startStr
-    const startDate = (startDateStr + 'T00:00:00.000Z');
-    const endDate = (startDateStr +'T23:59:59.999Z');
 
-    history.pushState(null,null,`/?date=${startDateStr}`); 
-
-    events?.map((event) => {
-      let eventStart = event.start
-      if (( startDate <= eventStart ) && (eventStart <= endDate)) {
-        return console.log(event)
-      }
-    });
-
+    setRangeStart(startDateStr + 'T00:00:00.000Z');
+    setRangeEnd(startDateStr +'T23:59:59.999Z');
   };
 
   return (
@@ -234,14 +226,13 @@ function App() {
           </div>
         </CalendarZone>
         <CalendarDay>
-          <Switch>
-            <Route path='/'>
-              <TodayDayList events={events}/>
-            </Route>
-            <Route path='/?date'>
-              <SelectDayList events={events}/>
-            </Route>
-          </Switch>
+          <Route path='/'>
+            <DayList 
+            events={events}
+            rangeStart={rangeStart}
+            rangeEnd={rangeEnd}
+            />
+          </Route>
           <CalendarDayBtn onClick={openModal}>
             <PlusIcon></PlusIcon>
           </CalendarDayBtn>
