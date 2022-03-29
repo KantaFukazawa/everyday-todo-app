@@ -32,6 +32,7 @@ gem 'devise'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
+gem 'react-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -55,6 +56,7 @@ group :development do
   gem 'erb2haml'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 group :test do

@@ -4,10 +4,16 @@ default: &default
   pool: 5
   timeout: 5000
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # docker時変更
+  # username: 'postgres'
+  host: localhost
+  # port: 5432
+  
 
 development:
   <<: *default
   database: new_todo_app_development
+
 
 test:
   <<: *default
@@ -16,6 +22,6 @@ test:
 production:
   <<: *default
   database: new_todo_app_production
-  username: new_todo_app
+  username: kanta
   password: <%= ENV['DATABASE_PASSWORD'] %>
   host: <%= ENV['DATABASE_HOST'] %>

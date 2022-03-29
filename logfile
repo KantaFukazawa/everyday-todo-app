@@ -1,0 +1,50 @@
+2022-02-16 18:30:15.910 JST [14393] LOG:  starting PostgreSQL 14.2 on x86_64-apple-darwin19.6.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.29), 64-bit
+2022-02-16 18:30:15.912 JST [14393] LOG:  listening on IPv6 address "::1", port 5432
+2022-02-16 18:30:15.912 JST [14393] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-02-16 18:30:15.913 JST [14393] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-02-16 18:30:15.917 JST [14394] LOG:  database system was shut down at 2022-02-16 18:29:21 JST
+2022-02-16 18:30:15.920 JST [14393] LOG:  database system is ready to accept connections
+2022-02-16 18:30:52.073 JST [14439] FATAL:  database "new_todo_app_development" does not exist
+2022-02-16 18:30:53.370 JST [14443] FATAL:  database "new_todo_app_development" does not exist
+2022-02-16 19:31:11.594 JST [14524] FATAL:  database "new_todo_app_development" does not exist
+2022-02-16 19:31:38.229 JST [14553] FATAL:  database "new_todo_app_development" does not exist
+2022-02-16 19:31:39.451 JST [14557] FATAL:  database "new_todo_app_development" does not exist
+2022-02-16 19:32:18.420 JST [14587] FATAL:  database "new_todo_app_development" does not exist
+2022-02-18 16:25:49.205 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:25:49.214 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:25:59.973 JST [14398] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:26:00.027 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:26:00.033 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:26:10.744 JST [68911] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:26:20.430 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:26:20.441 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:26:31.271 JST [14398] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:26:31.352 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:26:31.366 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:26:42.006 JST [68946] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:26:49.214 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:26:49.230 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:26:59.894 JST [14398] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:26:59.976 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:26:59.989 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:27:10.513 JST [68996] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:27:20.427 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:27:20.441 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:27:31.206 JST [14398] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:27:31.246 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:27:31.255 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:27:41.973 JST [69024] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-02-18 16:27:49.197 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/db_0.tmp": No space left on device
+2022-02-18 16:27:49.202 JST [14399] LOG:  could not close temporary statistics file "pg_stat_tmp/global.tmp": No space left on device
+2022-02-18 16:27:59.792 JST [14398] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2022-03-21 19:52:49.582 JST [48121] LOG:  starting PostgreSQL 14.2 on x86_64-apple-darwin19.6.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.29), 64-bit
+2022-03-21 19:52:49.584 JST [48121] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-21 19:52:49.584 JST [48121] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-21 19:52:49.584 JST [48121] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-21 19:52:49.594 JST [48122] LOG:  database system was shut down at 2022-03-21 19:52:10 JST
+2022-03-21 19:52:49.603 JST [48121] LOG:  database system is ready to accept connections
+2022-03-21 20:02:49.642 JST [48121] LOG:  could not open file "postmaster.pid": No such file or directory
+2022-03-21 20:02:49.643 JST [48121] LOG:  performing immediate shutdown because data directory lock file is invalid
+2022-03-21 20:02:49.643 JST [48121] LOG:  received immediate shutdown request
+2022-03-21 20:02:49.643 JST [48121] LOG:  could not open file "postmaster.pid": No such file or directory
+2022-03-21 20:02:49.646 JST [48121] LOG:  database system is shut down
