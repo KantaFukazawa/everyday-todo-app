@@ -67,7 +67,7 @@ function TodayDayList(props) {
             const eventStrISO = event.start.slice(0, 19) + '+09:00'
             const eventStrTs = Date.parse(eventStrISO);
             const eventStrDt = new Date(eventStrTs);
-            
+
             function toDoubleDigits(i) {
             if (i < 10) {
             i = "0" + i;

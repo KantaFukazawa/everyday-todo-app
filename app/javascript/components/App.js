@@ -168,7 +168,7 @@ const FormBtn = styled.button`
 
 function App() {
   const [show, setShow] = useState(false)
-  const [events, setEvents] = React.useState(null);
+  const [events, setEvents] = useState(null);
 
   React.useEffect(() => {
     axios.get('/api/v1/events.js')
