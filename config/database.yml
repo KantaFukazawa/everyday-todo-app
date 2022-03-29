@@ -4,9 +4,10 @@ default: &default
   pool: 5
   timeout: 5000
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: 'postgres'
-  host: db
-  port: 5432
+  # docker時変更
+  # username: 'postgres'
+  host: localhost
+  # port: 5432
   
 
 development:
