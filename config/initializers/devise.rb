@@ -133,7 +133,7 @@ Devise.setup do |config|
 
   # Send a notification email when the user's password is changed.
   # config.send_password_change_notification = false
-  config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET'], scope: 'email', oauth_callback: "#{ENV['HOST']}/users/auth/twitter/callback"
+  config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET'], scope: 'email', oauth_callback: "https://new-todo-app-kantafukazawa.herokuapp.com/auth/twitter/callback"
   config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], skip_jwt: true
   OmniAuth.config.logger = Rails.logger if Rails.env.development?
 
