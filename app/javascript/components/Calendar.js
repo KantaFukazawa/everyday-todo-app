@@ -4,8 +4,6 @@ import dayGridPlugin from '@fullcalendar/daygrid' ;
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from "@fullcalendar/timegrid";
 import allLocales from '@fullcalendar/core/locales-all';
-import '@fullcalendar/common/main.css';
-import '@fullcalendar/daygrid/main.css';
 
 function Calendar(props) {
 
