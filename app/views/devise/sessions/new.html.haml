@@ -3,13 +3,13 @@
     = image_tag 'stepup-logo-middle.png', class: 'login_site_logo'
     %p step up にログイン
   .login_middle
-    = link_to user_twitter_omniauth_authorize_path, method: :post, class: 'login_btn login_btn_twitter' do
+    = button_to user_twitter_omniauth_authorize_path, method: :post, data: {"turbolinks"=>false}, class: 'login_btn login_btn_twitter' do
       = image_tag 'icons-twitter.png'
       Twitterで登録
-    = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: 'login_btn login_btn_google' do
+    = button_to user_google_oauth2_omniauth_authorize_path, method: :post, data: {"turbolinks"=>false}, class: 'login_btn login_btn_google' do
       = image_tag 'icons-google.png'
       Googleで登録
   .login_bottom
-    %p 
+    %p
       アカウントをお持ちでない方は
       %span= link_to  'こちら', new_user_registration_path

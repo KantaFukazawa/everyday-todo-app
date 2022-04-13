@@ -3,7 +3,7 @@ import FullCalendar from '@fullcalendar/react' ;
 import dayGridPlugin from '@fullcalendar/daygrid' ;
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from "@fullcalendar/timegrid";
-import allLocales from '@fullcalendar/core/locales-all';  
+import allLocales from '@fullcalendar/core/locales-all';
 
 function Calendar(props) {
 
@@ -35,8 +35,8 @@ function Calendar(props) {
     events={events}
     eventTimeFormat={{ hour: "2-digit", minute: "2-digit" }}
     select={onClickHandler}
-    />  
-    </>   
+    />
+    </>
   )
 }
 export default Calendar

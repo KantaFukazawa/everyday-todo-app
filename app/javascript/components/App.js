@@ -72,8 +72,6 @@ const PlusIcon = styled.span`
     transform: rotate(90deg);
   }
 `
- 
-//---------------メインページ(View)---------------//
 
 function App() {
   const [show, setShow] = useState(false)
@@ -89,8 +87,6 @@ function App() {
   const openModal = () => {
   setShow(true)
   }
-
-  /////Calendar/////
 
   const dayCellContent = (e) => {
     (e.dayNumberText = e.dayNumberText.replace('日', ''))
